@@ -1,0 +1,18 @@
+{
+  "name": "@mojule/render-components",
+  "version": "1.0.0",
+  "description": "Render mojule components to DOM nodes",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "Nik Coughlin <nrkn.com@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@mojule/dom-utils": "^0.1.2",
+    "@mojule/is": "^0.1.10",
+    "@mojule/templating": "^1.0.1",
+    "@mojule/utils": "^0.1.14"
+  }
+}
