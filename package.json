@@ -1,6 +1,6 @@
 {
   "name": "@mojule/render-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Render mojule components to DOM nodes",
   "main": "index.js",
   "scripts": {
