@@ -8,6 +8,8 @@ const getValues = require( './src/get-values' )
 
 const { select } = domUtils
 
+const excludeStrict = [ 'if', 'not', 'include' ]
+
 const Render = ( components, document ) => {
   const {
     getContent, getTemplate, getConfig, getStyle, getClient, getModel
@@ -26,7 +28,7 @@ const Render = ( components, document ) => {
         el.appendChild( content.cloneNode( true ) )
     }
 
-    const templating = Templating( templates, { onInclude, document } )
+    const templating = Templating( templates, { onInclude, document, excludeStrict } )
 
     const nodeToDom = node => {
       let { name, model } = node.value
