@@ -30,7 +30,8 @@ const Render = ( components, document ) => {
       }
     }
 
-    const templating = Templating( templates, { onInclude, document, excludeStrict } )
+    // until we figure out what the weird thing with onInclude adding content is, don't use cache
+    const templating = Templating( templates, { onInclude, document, excludeStrict, useCache: false } )
 
     const nodeToDom = node => {
       let { name, model } = node.value
