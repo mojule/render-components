@@ -26,7 +26,7 @@ const Render = ( components, document ) => {
 
       if( content ){
         el.appendChild( content.cloneNode( true ) )
-        templating.invalidateCache( name )
+        templating.excludeFromCache( name )
       }
     }
 
