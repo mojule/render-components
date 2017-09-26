@@ -8,7 +8,7 @@ const getValues = require( './src/get-values' )
 
 const { select } = domUtils
 
-const excludeStrict = [ 'if', 'not', 'include' ]
+const excludeStrict = [ 'if', 'not', 'some', 'include' ]
 
 const Render = ( components, document ) => {
   const {
@@ -24,8 +24,10 @@ const Render = ( components, document ) => {
 
       const content = getContent( name )
 
-      if( content )
+      if( content ){
         el.appendChild( content.cloneNode( true ) )
+        templating.invalidateCache( name )
+      }
     }
 
     const templating = Templating( templates, { onInclude, document, excludeStrict } )
