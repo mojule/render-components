@@ -1,6 +1,6 @@
 {
   "name": "@mojule/render-components",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Render mojule components to DOM nodes",
   "main": "index.js",
   "scripts": {
@@ -10,9 +10,9 @@
   "author": "Nik Coughlin <nrkn.com@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@mojule/dom-utils": "^0.1.2",
-    "@mojule/is": "^0.1.10",
-    "@mojule/templating": "^2.2.0",
+    "@mojule/dom-utils": "^0.1.4",
+    "@mojule/is": "^0.1.11",
+    "@mojule/templating": "^2.2.1",
     "@mojule/utils": "^0.1.14"
   }
 }
