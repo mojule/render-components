@@ -9,13 +9,15 @@ const getValues = require( './src/get-values' )
 const { select } = domUtils
 
 const excludeStrict = [ 'if', 'not', 'some', 'include' ]
+// until we figure out what the weird thing with onInclude adding content is, don't use cache
+const useCache = false
 
-const Render = ( components, document ) => {
+const Render = ( components, options ) => {
   const {
     getContent, getTemplate, getConfig, getStyle, getClient, getModel
   } = getValues( components )
 
-  const render = modelNode => {
+  const render = ( modelNode, renderOptions = {} ) => {
     const templates = getTemplates( components )
     const nameSet = new Set()
 
@@ -30,8 +32,12 @@ const Render = ( components, document ) => {
       }
     }
 
-    // until we figure out what the weird thing with onInclude adding content is, don't use cache
-    const templating = Templating( templates, { onInclude, document, excludeStrict, useCache: false } )
+    const defaultOptions = { onInclude, excludeStrict, useCache }
+
+    options = Object.assign( {}, defaultOptions, options, renderOptions )
+
+    const { document } = options
+    const templating = Templating( templates, options )
 
     const nodeToDom = node => {
       let { name, model } = node.value
